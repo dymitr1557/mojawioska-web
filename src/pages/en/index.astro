@@ -1,0 +1,13 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+---
+
+<Layout title="Wild Child" alternatePath="">
+  <p>Wild Child – a mobile app. Website under construction.</p>
+  <ul>
+    <li><a href={getRelativeLocaleUrl('en', 'terms')}>Terms of service</a></li>
+    <li><a href={getRelativeLocaleUrl('en', 'privacy')}>Privacy policy</a></li>
+    <li><a href={getRelativeLocaleUrl('en', 'cookies')}>Cookie policy</a></li>
+  </ul>
+</Layout>

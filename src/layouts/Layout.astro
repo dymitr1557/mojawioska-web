@@ -1,0 +1,34 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+interface Props {
+  title: string;
+  // Same page in the other language, as a path without the locale prefix
+  alternatePath: string;
+}
+
+const { title, alternatePath } = Astro.props;
+const lang = Astro.currentLocale ?? 'pl';
+const otherLang = lang === 'pl' ? 'en' : 'pl';
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | Wild Child</title>
+  </head>
+  <body>
+    <header>
+      <a href={getRelativeLocaleUrl(lang)}>Wild Child</a>
+      <a href={getRelativeLocaleUrl(otherLang, alternatePath)} hreflang={otherLang}>
+        {otherLang === 'en' ? 'English' : 'Polski'}
+      </a>
+    </header>
+    <main>
+      <h1>{title}</h1>
+      <slot />
+    </main>
+  </body>
+</html>
