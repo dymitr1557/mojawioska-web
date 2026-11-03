@@ -1,8 +1,8 @@
-# wioska-web
+# mojawioska-web
 
 Public website for the Wild Child app: a landing page and the legal documents the app links to. Built with [Astro](https://astro.build), no other libraries.
 
-Live at https://dymitr1557.github.io/wioska-web/
+Live at https://dymitr1557.github.io/mojawioska-web/
 
 ## Routes
 
@@ -23,7 +23,7 @@ Requires Node 22.23.4+.
 
 ```bash
 npm install
-npm run dev      # http://localhost:4321/wioska-web/
+npm run dev      # http://localhost:4321/mojawioska-web/
 npm run build    # static output in dist/
 npm run preview
 ```

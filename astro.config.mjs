@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config';
 // set `site` to it, remove `base` and add public/CNAME (see README.md).
 export default defineConfig({
   site: 'https://dymitr1557.github.io',
-  base: '/wioska-web',
+  base: '/mojawioska-web',
   i18n: {
     locales: ['pl', 'en'],
     defaultLocale: 'pl',
