@@ -1,0 +1,275 @@
+---
+import '@fontsource/plus-jakarta-sans/400.css';
+import '@fontsource/plus-jakarta-sans/500.css';
+import '@fontsource/plus-jakarta-sans/600.css';
+import '@fontsource/plus-jakarta-sans/700.css';
+import '@fontsource/plus-jakarta-sans/800.css';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+interface Props {
+  title: string;
+  description?: string;
+  alternatePath: string;
+  variant?: 'landing' | 'legal';
+}
+
+const { title, description, alternatePath, variant = 'legal' } = Astro.props;
+const lang = Astro.currentLocale ?? 'pl';
+const otherLang = lang === 'pl' ? 'en' : 'pl';
+const fullTitle = `${title} | Moja Wioska`;
+const desc = description ?? (lang === 'pl'
+  ? 'Moja Wioska — aplikacja mobilna dla Twojego domu, wspierana przez AI.'
+  : 'Moja Wioska — an AI-powered mobile app for your household.');
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={desc} />
+    <link rel="icon" type="image/svg+xml" href="/logo/mark.svg" />
+    <link rel="alternate" hreflang={otherLang} href={getRelativeLocaleUrl(otherLang, alternatePath)} />
+    <link rel="alternate" hreflang={lang} href={getRelativeLocaleUrl(lang, alternatePath)} />
+    <title>{fullTitle}</title>
+  </head>
+  <body class={variant}>
+    {variant === 'legal' && (
+      <header class="legal-header">
+        <a href={getRelativeLocaleUrl(lang)} class="logo-link">
+          <img src="/logo/logo-horizontal.svg" alt="Moja Wioska" width="160" height="40" />
+        </a>
+        <nav>
+          <a href={getRelativeLocaleUrl(otherLang, alternatePath)} hreflang={otherLang} class="lang-switch">
+            {otherLang === 'en' ? 'EN' : 'PL'}
+          </a>
+        </nav>
+      </header>
+    )}
+    <main>
+      <slot />
+    </main>
+    {variant === 'legal' && (
+      <footer class="legal-footer">
+        <div class="footer-inner">
+          <div class="footer-links">
+            {lang === 'pl' ? (
+              <>
+                <a href={getRelativeLocaleUrl('pl', 'regulamin')}>Regulamin</a>
+                <a href={getRelativeLocaleUrl('pl', 'polityka-prywatnosci')}>Polityka prywatności</a>
+                <a href={getRelativeLocaleUrl('pl', 'polityka-cookies')}>Polityka cookies</a>
+              </>
+            ) : (
+              <>
+                <a href={getRelativeLocaleUrl('en', 'terms')}>Terms of Service</a>
+                <a href={getRelativeLocaleUrl('en', 'privacy')}>Privacy Policy</a>
+                <a href={getRelativeLocaleUrl('en', 'cookies')}>Cookie Policy</a>
+              </>
+            )}
+          </div>
+          <p class="copyright">&copy; {new Date().getFullYear()} Moja Wioska</p>
+        </div>
+      </footer>
+    )}
+  </body>
+</html>
+
+<style is:global>
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --color-canvas: #faf7f2;
+    --color-surface: #fff;
+    --color-surface-soft: #f2eee7;
+    --color-primary: #567866;
+    --color-primary-hover: #496756;
+    --color-primary-soft: rgba(201, 235, 208, 0.6);
+    --color-on-primary: #fff;
+    --color-accent: #C76B4F;
+    --color-accent-dark: #97472e;
+    --color-golden: #E2B25F;
+    --color-sky: #97B6D4;
+    --color-plum: #7D5C78;
+    --color-green-light: #8FAC94;
+    --color-green-dark: #627A6B;
+    --color-text: #1c1c19;
+    --color-text-muted: #5a615a;
+    --color-text-subtle: #6d756d;
+    --color-border: #ede7dd;
+    --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --radius-sm: 12px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+    --shadow-card: 0 10px 28px -6px rgba(40, 50, 45, 0.06), 0 2px 8px rgba(0, 0, 0, 0.02);
+    --shadow-button: 0 6px 16px rgba(86, 120, 102, 0.28);
+    --max-width: 1120px;
+    --gutter: 20px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font);
+    color: var(--color-text);
+    background: var(--color-canvas);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--color-primary-hover);
+  }
+
+  img, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Legal page styles */
+  body.legal .legal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 20px var(--gutter);
+  }
+
+  body.legal .logo-link {
+    display: flex;
+    align-items: center;
+  }
+
+  body.legal .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--color-surface-soft);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    transition: background 0.2s;
+  }
+
+  body.legal .lang-switch:hover {
+    background: var(--color-border);
+    color: var(--color-text);
+  }
+
+  body.legal main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px var(--gutter) 80px;
+  }
+
+  body.legal main h1 {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 32px;
+    color: var(--color-text);
+  }
+
+  body.legal main h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    color: var(--color-text);
+  }
+
+  body.legal main h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 28px;
+    margin-bottom: 12px;
+    color: var(--color-text);
+  }
+
+  body.legal main p {
+    margin-bottom: 16px;
+    color: var(--color-text-muted);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  body.legal main ul,
+  body.legal main ol {
+    margin-bottom: 16px;
+    padding-left: 24px;
+    color: var(--color-text-muted);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  body.legal main li {
+    margin-bottom: 6px;
+  }
+
+  body.legal main strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  body.legal .legal-footer {
+    border-top: 1px solid var(--color-border);
+    padding: 32px var(--gutter);
+  }
+
+  body.legal .footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  body.legal .footer-links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  body.legal .footer-links a {
+    font-size: 14px;
+    color: var(--color-text-muted);
+  }
+
+  body.legal .footer-links a:hover {
+    color: var(--color-primary);
+  }
+
+  body.legal .copyright {
+    font-size: 13px;
+    color: var(--color-text-subtle);
+  }
+
+  @media (max-width: 640px) {
+    body.legal .footer-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

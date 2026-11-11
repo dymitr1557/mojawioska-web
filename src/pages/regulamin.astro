@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Regulamin" alternatePath="terms">
+
+<h1>Regulamin korzystania z aplikacji Moja Wioska</h1>
+
+<p><strong>Data wejścia w życie:</strong> 11 listopada 2026 r.</p>
+
+<h2>§ 1. Postanowienia ogólne</h2>
+
+<p>Niniejszy regulamin (dalej: „Regulamin") określa zasady korzystania z aplikacji mobilnej „Moja Wioska" (dalej: „Aplikacja") dostępnej na urządzenia z systemem Android.</p>
+
+<p>Aplikacja jest przeznaczona do zarządzania codziennymi aktywnościami domowymi, w tym zadaniami, przepisami, listą zakupów, pogodą, czatem, notatnikiem, quizami i timerem.</p>
+
+<p>Korzystanie z Aplikacji oznacza akceptację niniejszego Regulaminu.</p>
+
+<h2>§ 2. Definicje</h2>
+
+<ul>
+  <li><strong>Użytkownik</strong> — osoba, która pobrała Aplikację i utworzyła konto.</li>
+  <li><strong>Konto</strong> — indywidualny profil Użytkownika w Aplikacji, utworzony za pomocą adresu e-mail i hasła lub logowania przez Google.</li>
+  <li><strong>Treści Użytkownika</strong> — wszelkie dane wprowadzone przez Użytkownika do Aplikacji, w tym zadania, przepisy, listy zakupów, notatki, wiadomości czatu i quizy.</li>
+  <li><strong>AI</strong> — funkcje sztucznej inteligencji wbudowane w Aplikację, które wspierają Użytkownika w automatyzacji zadań.</li>
+</ul>
+
+<h2>§ 3. Rejestracja i konto</h2>
+
+<ol>
+  <li>Rejestracja wymaga podania adresu e-mail, hasła oraz płci (do celów rekomendacji ubioru).</li>
+  <li>Użytkownik może zarejestrować się również za pomocą konta Google.</li>
+  <li>Adres e-mail wymaga weryfikacji po rejestracji.</li>
+  <li>Użytkownik jest odpowiedzialny za bezpieczeństwo swojego hasła i konta.</li>
+  <li>Jedno konto może być używane na wielu urządzeniach.</li>
+</ol>
+
+<h2>§ 4. Funkcje Aplikacji</h2>
+
+<h3>4.1 Zadania</h3>
+<p>Moduł zadań umożliwia tworzenie, edycję i oznaczanie zadań jako wykonane. AI automatycznie rozpoznaje w treści zadań encje takie jak: numery telefonów, daty, adresy, linki, adresy e-mail i numery kont bankowych, umożliwiając szybkie akcje (połączenie telefoniczne, dodanie do kalendarza, nawigacja, kopiowanie).</p>
+
+<h3>4.2 Pogoda i rekomendacje ubioru</h3>
+<p>Moduł pogodowy wyświetla aktualną prognozę na podstawie lokalizacji urządzenia. AI generuje rekomendacje ubioru dopasowane do temperatury, płci Użytkownika i jego historii ocen. Algorytm uczy się preferencji Użytkownika z każdą oceną.</p>
+
+<h3>4.3 Czat</h3>
+<p>Moduł czatu umożliwia komunikację w czasie rzeczywistym. Użytkownicy mogą tworzyć pokoje publiczne i prywatne, zapraszać członków i zarządzać nimi. Zaznaczony tekst w czacie można zapisać do notatnika.</p>
+
+<h3>4.4 Przepisy</h3>
+<p>Moduł przepisów umożliwia dodawanie przepisów ręcznie, przez wklejenie linku, wpisanie tekstu lub poproszenie AI o wygenerowanie przepisu. AI formatuje składniki, porcje i kroki przygotowania. Przepisy można importować ze zdjęć i plików PDF (OCR). AI może ulepszać przepisy.</p>
+
+<h3>4.5 Lista zakupów</h3>
+<p>Moduł listy zakupów umożliwia tworzenie i udostępnianie list zakupów. Produkty można dodawać tekstowo, ze zdjęć lub plików. AI automatycznie kategoryzuje produkty.</p>
+
+<h3>4.6 Quiz</h3>
+<p>Moduł quizów umożliwia generowanie quizów edukacyjnych przez AI na dowolny temat. Użytkownik określa temat i liczbę pytań.</p>
+
+<h3>4.7 Notatnik</h3>
+<p>Moduł notatnika oferuje bogaty edytor tekstu (Tiptap) z hierarchią stron i podstron. Obsługuje formatowanie tekstu, linki, listy i licznik słów. Notatki można importować ze zdjęć i plików PDF.</p>
+
+<h3>4.8 Timer</h3>
+<p>Moduł timera oferuje trzy wizualne tryby: odliczanie cyfrowe, klepsydrę piaskową i timer wodny. Czas można ustawić od 15 sekund do 2 godzin z powiadomieniem push na koniec.</p>
+
+<h2>§ 5. Funkcje AI</h2>
+
+<ol>
+  <li>AI w Aplikacji służy jako narzędzie wspomagające — wyniki generowane przez AI mogą zawierać niedokładności.</li>
+  <li>Użytkownik ponosi odpowiedzialność za weryfikację treści generowanych przez AI przed ich wykorzystaniem.</li>
+  <li>AI przetwarza dane Użytkownika wyłącznie w celu realizacji żądanej funkcji (np. formatowanie przepisu, generowanie quizu).</li>
+  <li>Pliki przesłane do funkcji importu dokumentów (zdjęcia, PDF) nie są przechowywane po odczytaniu — maksymalny rozmiar pliku to 10 MB.</li>
+</ol>
+
+<h2>§ 6. Import dokumentów</h2>
+
+<ol>
+  <li>Aplikacja umożliwia import treści ze zdjęć i plików PDF za pomocą technologii OCR.</li>
+  <li>Import jest dostępny w modułach: przepisy, lista zakupów i notatnik.</li>
+  <li>Przesłany plik jest przetwarzany jednorazowo i nie jest zapisywany na serwerze po odczytaniu.</li>
+  <li>Maksymalny rozmiar przesyłanego pliku to 10 MB.</li>
+</ol>
+
+<h2>§ 7. Tryb offline</h2>
+
+<p>Aplikacja obsługuje tryb offline dzięki lokalnej bazie danych (IndexedDB). Dane synchronizowane są z serwerem po przywróceniu połączenia internetowego.</p>
+
+<h2>§ 8. Powiadomienia push</h2>
+
+<p>Aplikacja może wysyłać powiadomienia push dotyczące timerów, wiadomości czatu i innych zdarzeń. Użytkownik może wyłączyć powiadomienia w ustawieniach urządzenia.</p>
+
+<h2>§ 9. Treści Użytkownika</h2>
+
+<ol>
+  <li>Użytkownik zachowuje pełne prawa do swoich Treści.</li>
+  <li>Użytkownik nie może publikować treści niezgodnych z prawem, obraźliwych lub naruszających prawa osób trzecich, szczególnie w czacie publicznym.</li>
+  <li>Zastrzegamy sobie prawo do usunięcia treści naruszających Regulamin.</li>
+</ol>
+
+<h2>§ 10. Dostępność i zmiany</h2>
+
+<ol>
+  <li>Dokładamy starań, aby Aplikacja była dostępna nieprzerwanie, ale nie gwarantujemy ciągłości działania.</li>
+  <li>Zastrzegamy sobie prawo do modyfikacji, zawieszenia lub zakończenia działania Aplikacji lub jej poszczególnych funkcji.</li>
+  <li>O istotnych zmianach w Regulaminie Użytkownicy zostaną poinformowani za pośrednictwem Aplikacji.</li>
+</ol>
+
+<h2>§ 11. Ograniczenie odpowiedzialności</h2>
+
+<ol>
+  <li>Aplikacja jest udostępniana w stanie „takim, jakim jest" (as is).</li>
+  <li>Nie ponosimy odpowiedzialności za decyzje podjęte na podstawie treści generowanych przez AI, w tym rekomendacji ubioru i wyników quizów.</li>
+  <li>Nie ponosimy odpowiedzialności za utratę danych wynikającą z awarii urządzenia, siły wyższej lub działań Użytkownika.</li>
+</ol>
+
+<h2>§ 12. Usunięcie konta</h2>
+
+<p>Użytkownik może w każdej chwili usunąć swoje konto w ustawieniach Aplikacji. Usunięcie konta powoduje trwałe usunięcie wszystkich Treści Użytkownika.</p>
+
+<h2>§ 13. Postanowienia końcowe</h2>
+
+<ol>
+  <li>Regulamin podlega prawu polskiemu.</li>
+  <li>W sprawach nieuregulowanych Regulaminem zastosowanie mają przepisy Kodeksu cywilnego oraz inne właściwe przepisy prawa polskiego.</li>
+  <li>Spory wynikające z korzystania z Aplikacji będą rozstrzygane przez właściwe sądy polskie.</li>
+</ol>
+
+</Layout>

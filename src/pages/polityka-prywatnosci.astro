@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Polityka prywatności" alternatePath="privacy">
+
+<h1>Polityka prywatności aplikacji Moja Wioska</h1>
+
+<p><strong>Data wejścia w życie:</strong> 11 listopada 2026 r.</p>
+
+<p>Niniejsza Polityka prywatności opisuje, jakie dane osobowe zbieramy, w jaki sposób je przetwarzamy i jakie prawa przysługują Użytkownikom aplikacji „Moja Wioska" (dalej: „Aplikacja").</p>
+
+<h2>1. Administrator danych</h2>
+
+<p>Administratorem danych osobowych przetwarzanych w Aplikacji jest właściciel aplikacji Moja Wioska. W sprawie ochrony danych osobowych można skontaktować się za pośrednictwem ustawień Aplikacji.</p>
+
+<h2>2. Jakie dane zbieramy</h2>
+
+<h3>2.1 Dane podawane przy rejestracji</h3>
+<ul>
+  <li><strong>Adres e-mail</strong> — do uwierzytelniania, weryfikacji konta i komunikacji.</li>
+  <li><strong>Hasło</strong> — przechowywane w formie zaszyfrowanej w Firebase Authentication.</li>
+  <li><strong>Płeć</strong> — do personalizacji rekomendacji ubioru w module pogodowym.</li>
+  <li><strong>Preferowany język</strong> (polski lub angielski) — do wyświetlania interfejsu w odpowiednim języku.</li>
+</ul>
+
+<h3>2.2 Dane generowane podczas korzystania z Aplikacji</h3>
+<ul>
+  <li><strong>Zadania</strong> — treść zadań tworzona przez Użytkownika.</li>
+  <li><strong>Przepisy</strong> — przepisy dodane ręcznie, zaimportowane lub wygenerowane przez AI.</li>
+  <li><strong>Lista zakupów</strong> — produkty dodane przez Użytkownika.</li>
+  <li><strong>Notatki</strong> — treść stron i podstron w notatniku.</li>
+  <li><strong>Wiadomości czatu</strong> — treść wiadomości w pokojach czatowych (publicznych i prywatnych).</li>
+  <li><strong>Quizy</strong> — temat i wyniki quizów generowanych przez AI.</li>
+  <li><strong>Oceny ubioru</strong> — feedback Użytkownika dotyczący rekomendacji ubioru, używany do uczenia algorytmu.</li>
+</ul>
+
+<h3>2.3 Dane zbierane automatycznie</h3>
+<ul>
+  <li><strong>Lokalizacja urządzenia</strong> — do wyświetlania prognozy pogody (za zgodą Użytkownika).</li>
+  <li><strong>Token urządzenia (FCM)</strong> — do wysyłania powiadomień push.</li>
+  <li><strong>Dane o urządzeniu</strong> — typ urządzenia i wersja systemu operacyjnego (w celach diagnostycznych).</li>
+</ul>
+
+<h3>2.4 Dane przetwarzane tymczasowo</h3>
+<ul>
+  <li><strong>Zdjęcia i pliki PDF</strong> — przesyłane do funkcji importu dokumentów (OCR). Pliki są przetwarzane jednorazowo i nie są przechowywane na serwerze po odczytaniu. Maksymalny rozmiar: 10 MB.</li>
+  <li><strong>Zdjęcia z aparatu</strong> — używane wyłącznie do importu dokumentów, nie są przechowywane po przetworzeniu.</li>
+</ul>
+
+<h2>3. Cele przetwarzania danych</h2>
+
+<p>Dane osobowe przetwarzamy w następujących celach:</p>
+
+<ul>
+  <li><strong>Świadczenie usług</strong> — rejestracja, logowanie, synchronizacja danych między urządzeniami.</li>
+  <li><strong>Personalizacja</strong> — rekomendacje ubioru na podstawie płci, pogody i historii ocen.</li>
+  <li><strong>Funkcje AI</strong> — rozpoznawanie encji w zadaniach, generowanie przepisów i quizów, import dokumentów (OCR), kategoryzacja produktów na liście zakupów.</li>
+  <li><strong>Komunikacja</strong> — powiadomienia push, wiadomości czatu w czasie rzeczywistym.</li>
+  <li><strong>Tryb offline</strong> — lokalne przechowywanie danych (IndexedDB) do działania bez połączenia z internetem.</li>
+</ul>
+
+<h2>4. Podstawy prawne przetwarzania</h2>
+
+<ul>
+  <li><strong>Wykonanie umowy</strong> (art. 6 ust. 1 lit. b RODO) — przetwarzanie niezbędne do świadczenia usług Aplikacji.</li>
+  <li><strong>Zgoda</strong> (art. 6 ust. 1 lit. a RODO) — dostęp do lokalizacji, powiadomienia push, import ze zdjęć.</li>
+  <li><strong>Prawnie uzasadniony interes</strong> (art. 6 ust. 1 lit. f RODO) — diagnostyka, poprawa jakości usług.</li>
+</ul>
+
+<h2>5. Usługi podmiotów trzecich</h2>
+
+<p>Aplikacja korzysta z następujących usług zewnętrznych:</p>
+
+<ul>
+  <li><strong>Firebase Authentication</strong> (Google LLC) — uwierzytelnianie użytkowników (e-mail/hasło, Google Sign-in).</li>
+  <li><strong>Firebase Cloud Messaging (FCM)</strong> (Google LLC) — powiadomienia push.</li>
+  <li><strong>Socket.io</strong> — komunikacja w czasie rzeczywistym (czat).</li>
+</ul>
+
+<p>Każda z tych usług przetwarza dane zgodnie z własną polityką prywatności. Zachęcamy do zapoznania się z polityką prywatności Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a>.</p>
+
+<h2>6. Przechowywanie danych</h2>
+
+<ul>
+  <li>Dane konta i Treści Użytkownika przechowujemy przez okres korzystania z Aplikacji.</li>
+  <li>Po usunięciu konta wszystkie dane są trwale usuwane.</li>
+  <li>Dane lokalne (IndexedDB) przechowywane są na urządzeniu Użytkownika i mogą być usunięte przez wyczyszczenie danych Aplikacji.</li>
+  <li>Pliki przesłane do importu dokumentów nie są przechowywane po przetworzeniu.</li>
+</ul>
+
+<h2>7. Bezpieczeństwo danych</h2>
+
+<ul>
+  <li>Hasła przechowywane są w formie zaszyfrowanej (Firebase Authentication).</li>
+  <li>Komunikacja z serwerem odbywa się przez szyfrowane połączenia (HTTPS/WSS).</li>
+  <li>Stosujemy standardowe środki bezpieczeństwa w celu ochrony danych przed nieautoryzowanym dostępem.</li>
+</ul>
+
+<h2>8. Prawa Użytkownika</h2>
+
+<p>Zgodnie z RODO, Użytkownikowi przysługują następujące prawa:</p>
+
+<ul>
+  <li><strong>Prawo dostępu</strong> — możesz zażądać informacji o swoich danych osobowych.</li>
+  <li><strong>Prawo do sprostowania</strong> — możesz poprawić nieprawidłowe dane.</li>
+  <li><strong>Prawo do usunięcia</strong> — możesz usunąć swoje konto i wszystkie powiązane dane.</li>
+  <li><strong>Prawo do ograniczenia przetwarzania</strong> — możesz ograniczyć sposób, w jaki przetwarzamy Twoje dane.</li>
+  <li><strong>Prawo do przenoszenia danych</strong> — możesz zażądać kopii swoich danych w formacie nadającym się do odczytu maszynowego.</li>
+  <li><strong>Prawo do cofnięcia zgody</strong> — w każdej chwili możesz cofnąć zgodę na przetwarzanie danych (np. lokalizacja, powiadomienia).</li>
+  <li><strong>Prawo do złożenia skargi</strong> — możesz złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych (UODO).</li>
+</ul>
+
+<h2>9. Dane dzieci</h2>
+
+<p>Aplikacja nie jest skierowana do dzieci poniżej 16. roku życia. Nie zbieramy świadomie danych osobowych od osób poniżej tego wieku. Jeśli dowiesz się, że dziecko korzysta z Aplikacji bez zgody rodzica, prosimy o kontakt.</p>
+
+<h2>10. Zmiany w Polityce prywatności</h2>
+
+<p>O istotnych zmianach w Polityce prywatności poinformujemy za pośrednictwem Aplikacji. Kontynuowanie korzystania z Aplikacji po wprowadzeniu zmian oznacza ich akceptację.</p>
+
+</Layout>
