@@ -57,15 +57,8 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
       </div>
       <div class="hero-visual">
         <div class="phone-mockup">
-          <div class="phone-notch"></div>
           <div class="phone-screen">
-            <img src="/logo/mark.svg" alt="Moja Wioska" class="phone-logo" width="200" height="200" />
-            <div class="phone-modules">
-              <div class="pm" style="--c:#567866">Zadania</div>
-              <div class="pm" style="--c:#97B6D4">Pogoda</div>
-              <div class="pm" style="--c:#C76B4F">Czat</div>
-              <div class="pm" style="--c:#E2B25F">Przepisy</div>
-            </div>
+            <img src="/screenshots/app-home.png" alt="Moja Wioska — ekran główny" class="phone-screenshot" />
           </div>
         </div>
         <div class="floating-pills">
@@ -515,15 +508,14 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
     position: relative;
   }
   .phone-mockup {
-    width: 260px;
-    height: 460px;
-    background: var(--color-surface);
-    border-radius: 36px;
-    border: 3px solid var(--color-border);
+    width: 280px;
+    height: 476px;
+    background: var(--color-text);
+    border-radius: 40px;
+    padding: 10px;
     box-shadow:
-      0 30px 60px -10px rgba(40, 50, 45, 0.12),
-      0 10px 20px rgba(0, 0, 0, 0.04),
-      inset 0 1px 0 rgba(255,255,255,0.8);
+      0 30px 60px -10px rgba(40, 50, 45, 0.18),
+      0 10px 20px rgba(0, 0, 0, 0.06);
     position: relative;
     overflow: hidden;
     animation: float 6s ease-in-out infinite;
@@ -532,42 +524,19 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
   }
-  .phone-notch {
-    width: 100px;
-    height: 24px;
-    background: var(--color-canvas);
-    border-radius: 0 0 16px 16px;
-    margin: 0 auto;
-    border: 2px solid var(--color-border);
-    border-top: none;
-  }
   .phone-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 32px 20px 20px;
-    gap: 24px;
-  }
-  .phone-logo {
-    width: 140px;
-    height: 140px;
-    filter: drop-shadow(0 8px 16px rgba(86,120,102,0.12));
-  }
-  .phone-modules {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
     width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    background: var(--color-canvas);
   }
-  .pm {
-    padding: 10px;
-    border-radius: 10px;
-    background: color-mix(in srgb, var(--c) 10%, white);
-    border: 1px solid color-mix(in srgb, var(--c) 20%, transparent);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--c);
-    text-align: center;
+  .phone-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top center;
+    display: block;
   }
 
   /* FLOATING PILLS */
@@ -617,9 +586,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
   }
   @media (max-width: 899px) {
     .floating-pills { display: none; }
-    .phone-mockup { width: 220px; height: 390px; }
-    .phone-logo { width: 110px; height: 110px; }
-    .phone-screen { padding: 24px 16px 16px; gap: 18px; }
+    .phone-mockup { width: 240px; height: 500px; }
   }
 
   /* STATS */
