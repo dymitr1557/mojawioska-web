@@ -42,3 +42,9 @@ npm run preview
 ## Legal documents
 
 See [docs/legal.md](docs/legal.md).
+
+## Module demo videos
+
+The landing page shows one short recording per module inside a phone frame. Module text lives in `src/data/modules.ts`; the videos live in `public/demos/<id>.{webm,mp4,jpg}`. The recordings show only a module's own content (no app header, bottom bar or module name), so renaming a module needs no new video.
+
+To re-record them, ask Claude Code to use the `record-module-demos` skill (`.claude/skills/record-module-demos/`). It holds the recorder and the step-by-step instructions. The demo data in the account already exists and is not re-created.

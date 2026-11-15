@@ -3,3 +3,6 @@ dist/
 .astro/
 .idea/
 .DS_Store
+
+# demo recorder (its local state lives in ~/.mojawioska-demos, outside the repo)
+.claude/skills/record-module-demos/recorder/node_modules/

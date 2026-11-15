@@ -1,0 +1,15 @@
+{
+  "name": "mojawioska-demos",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build-app": "node build-app.mjs",
+    "login": "node login.mjs",
+    "record": "node record.mjs",
+    "probe": "node probe.mjs"
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "playwright": "^1.49.0"
+  }
+}

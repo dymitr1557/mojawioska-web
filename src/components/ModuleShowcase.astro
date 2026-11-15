@@ -1,0 +1,195 @@
+---
+// One module: its recording inside the phone frame on one side, name, summary and feature list on the other.
+import PhoneFrame from './PhoneFrame.astro';
+import { aiBadge, type Locale, type Module } from '../data/modules';
+
+interface Props {
+  module: Module;
+  locale: Locale;
+  flip?: boolean;
+}
+
+const { module, locale, flip = false } = Astro.props;
+const copy = module[locale];
+const media = `/demos/${module.id}`;
+---
+
+<article
+  class:list={['showcase', { 'showcase--flip': flip }]}
+  id={`modul-${module.id}`}
+  style={`--accent: ${module.accent}; --tint: ${module.bg}`}
+>
+  <div class="showcase__visual">
+    <span class="showcase__halo" aria-hidden="true"></span>
+    <PhoneFrame>
+      <video
+        class="showcase__video"
+        data-demo
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster={`${media}.jpg`}
+        aria-label={copy.videoLabel}
+      >
+        <source src={`${media}.webm`} type="video/webm" />
+        <source src={`${media}.mp4`} type="video/mp4" />
+      </video>
+    </PhoneFrame>
+  </div>
+
+  <div class="showcase__text">
+    <div class="showcase__head">
+      <div class="showcase__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={module.icon} />
+      </div>
+      {module.ai && (
+        <span class="showcase__ai">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9zM19 15l.9 2.6 2.6.9-2.6.9L19 22l-.9-2.6-2.6-.9 2.6-.9z" /></svg>
+          {aiBadge[locale]}
+        </span>
+      )}
+    </div>
+    {copy.kicker && <p class="showcase__kicker">{copy.kicker}</p>}
+    <h3>{copy.name}</h3>
+    <p class="showcase__summary">{copy.summary}</p>
+    <ul class="showcase__features">
+      {copy.features.map((feature) => (
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7" /></svg>
+          <span>{feature}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</article>
+
+<script>
+  // Recordings play only while on screen, and not at all when the visitor asked for reduced motion.
+  const videos = document.querySelectorAll<HTMLVideoElement>('video[data-demo]');
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!still && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) void video.play().catch(() => {});
+          else video.pause();
+        }
+      },
+      { threshold: 0.5 },
+    );
+    videos.forEach((video) => observer.observe(video));
+  }
+</script>
+
+<style>
+  .showcase {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: center;
+    padding: 40px 0;
+  }
+  .showcase + :global(.showcase) {
+    border-top: 1px solid var(--color-border);
+  }
+  .showcase__visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 12px 0;
+  }
+  .showcase__halo {
+    position: absolute;
+    inset: 4% 8%;
+    border-radius: 48px;
+    background: var(--tint);
+  }
+  .showcase__visual :global(.phone-frame) {
+    --phone-w: 260px;
+  }
+  .showcase__head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .showcase__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--tint);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .showcase__ai {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px 5px 10px;
+    border-radius: var(--radius-full);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-primary);
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+  .showcase__ai svg { width: 14px; height: 14px; }
+  .showcase__kicker {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+    margin-bottom: 4px;
+  }
+  .showcase__icon svg { width: 26px; height: 26px; }
+  .showcase__text h3 {
+    font-size: clamp(22px, 3.5vw, 28px);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    margin-bottom: 10px;
+  }
+  .showcase__summary {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+    max-width: 480px;
+    margin-bottom: 20px;
+  }
+  .showcase__features {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    max-width: 480px;
+  }
+  .showcase__features li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--color-text);
+  }
+  .showcase__features svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--accent);
+  }
+  @media (min-width: 900px) {
+    .showcase {
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      padding: 56px 0;
+    }
+    .showcase--flip .showcase__visual { order: 2; }
+    .showcase__visual :global(.phone-frame) { --phone-w: 280px; }
+  }
+</style>
